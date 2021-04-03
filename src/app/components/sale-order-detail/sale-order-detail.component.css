@@ -1,0 +1,91 @@
+/* ::ng-deep .mat-sort-header-container {
+    display: flex;
+    justify-content: center;
+} */
+
+.overlay{
+    height:100vh;
+    width:100%;
+    background-color:rgba(0, 0, 0, 0.286);
+    z-index:    10;
+    top:        0; 
+    left:       0; 
+    position:   fixed;
+}
+
+.mat-sort-header .mat-header-cell .th-center {
+    text-align: center;
+    justify-content: center;
+}
+
+#listNo {
+    text-align: center;
+    justify-content: center;
+}
+
+.mat-column-listNo {
+    width: auto;
+    justify-content: center;
+}
+
+.mat-column-goodName {
+    text-align: left;
+    width: 45%;
+}
+
+.mat-column-goodPrice2 {
+    width: 10%;
+    text-align: right;
+}
+
+.mat-column-goodQty2 {
+    width: 10%;
+    text-align: right;
+}
+
+.mat-column-goodUnitCode {
+    width: 10%;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mat-column-goodDiscAmnt {
+    width: 10%;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.mat-column-goodAmnt {
+    width: 15%;
+    text-align: right;
+    justify-content: flex-end;
+    /* width: 15%; */
+}
+
+.mat-column-isTransfer {
+    text-align: center;
+    width: 10%;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: white;
+    border-radius: 5px;
+  }
+
+.mat-row:hover {
+    background-color: rgb(236, 236, 236);
+}
+
+.bg-img {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 75%, rgba(175, 175, 175, 0.95) 120%),  url('/assets/images/bisgroup-logo.png');
+    background-size: 25%;
+    /* background-position: -2% -15%; */
+    background-repeat: repeat;
+    position: relative;
+    z-index: 9999999;
+}

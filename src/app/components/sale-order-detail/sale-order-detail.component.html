@@ -1,0 +1,289 @@
+
+<div class="row p-5 text-center bg-img">
+    <!-- Left col -->
+    <section class="col-12 connectedSortable">
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>เลขที่เอกสาร</mat-label>
+                    <input matInput placeholder="เลขที่เอกสาร" [value]="saleOrderHeader.docuNo" readonly>
+                    <mat-icon matSuffix>description</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>วันที่เอกสาร</mat-label>
+                    <input matInput placeholder="วันที่เอกสาร" [value]="saleOrderHeader.docuDate | date:'dd/MM/yyyy'"
+                        readonly>
+                    <mat-icon matSuffix>event</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>แผนก</mat-label>
+                    <input matInput placeholder="แผนก" value="ฝ่ายขาย">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>เลขที่ใบสั่งซื้อ</mat-label>
+                    <input matInput placeholder="เลขที่ใบสั่งซื้อ" [value]="saleOrderHeader.refNo" readonly>
+                    <mat-icon matSuffix>description</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>วันที่สั่งซื้อลูกค้า</mat-label>
+                    <input matInput placeholder="วันที่สั่งซื้อลูกค้า"
+                        [value]="saleOrderHeader.custPodate | date:'dd/MM/yyyy'" readonly>
+                    <mat-icon matSuffix>event</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>จากใบเสนอราคา</mat-label>
+                    <input matInput placeholder="จากใบเสนอราคา" [value]="saleOrderHeader.custPono" readonly>
+                    <mat-icon matSuffix>description</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>รหัสพนักงาน</mat-label>
+                    <input matInput placeholder="รหัสพนักงาน" [value]="employee.empCode" readonly>
+                    <mat-icon matSuffix>tag</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>ชื่อพนักงาน</mat-label>
+                    <input matInput placeholder="ชื่อพนักงาน" [value]="employee.empName" readonly>
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>รหัสลูกค้า</mat-label>
+                    <input matInput placeholder="รหัสลูกค้า" [value]="customer.custCode" readonly>
+                    <mat-icon matSuffix>tag</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>ชื่อลูกค้า</mat-label>
+                    <input matInput placeholder="ชื่อลูกค้า" [value]="customer.custName" readonly>
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>ประเภทเครดิต</mat-label>
+                    <input matInput placeholder="ประเภทเครดิต" [value]="customer.creditType" readonly>
+                    <mat-icon matSuffix>tag</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>เครดิควัน</mat-label>
+                    <input matInput placeholder="เครดิควัน" [value]="customer.creditDays" readonly>
+                    <mat-icon matSuffix>account_circle</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>สถานะ</mat-label>
+                    <input matInput placeholder="สถานะเครดิต" [value]="customer.creditState" readonly>
+                    <mat-icon matSuffix>tag</mat-icon>
+                </mat-form-field>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>สถานที่จัดส่ง</mat-label>
+                    <input matInput placeholder="สถานที่จัดส่ง" [value]="saleOrderHeader.shipToAddr1" readonly>
+                    <mat-icon matSuffix>local_shipping</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>จังหวัด</mat-label>
+                    <input matInput placeholder="จังหวัด" [value]="saleOrderHeader.province" readonly>
+                    <mat-icon matSuffix>local_shipping</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                    <mat-label>วันที่ส่ง</mat-label>
+                    <input matInput placeholder="วันที่ส่ง" [value]="saleOrderHeader.shipDate | date: 'dd/MM/yyyy'"
+                        readonly>
+                    <mat-icon matSuffix>event</mat-icon>
+                    <!-- <mat-hint>Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <!-- ListNo Column -->
+                <ng-container matColumnDef="listNo">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> No </th>
+                    <td mat-cell *matCellDef="let row" id="listNo"> {{row.listNo}} </td>
+                    <td mat-footer-cell *matFooterCellDef>
+                        <b>
+                            <mat-icon matSuffix>toll</mat-icon>
+                        </b>
+                    </td>
+                </ng-container>
+
+                <!-- Goods Name Column -->
+                <ng-container matColumnDef="goodName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Goods Name </th>
+                    <td mat-cell *matCellDef="let row">{{row.goodName}}</td>
+                    <td mat-footer-cell *matFooterCellDef> <b>Total Summary : </b> </td>
+                </ng-container>
+
+                <!-- Quantity Column -->
+                <ng-container matColumnDef="goodQty2">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition='before'> Qty </th>
+                    <td mat-cell *matCellDef="let row"> {{row.goodQty2 | currency: '' : ''}} </td>
+                    <td mat-footer-cell *matFooterCellDef> </td>
+                </ng-container>
+
+                <!-- Goods Unit Column -->
+                <ng-container matColumnDef="goodUnitCode">
+                    <th mat-header-cell *matHeaderCellDef class="th-center"> Unit </th>
+                    <td mat-cell *matCellDef="let row">{{row.goodUnitCode}}</td>
+                    <td mat-footer-cell *matFooterCellDef> </td>
+                </ng-container>
+
+                <!-- Price Column -->
+                <ng-container matColumnDef="goodPrice2">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition='before'> Price </th>
+                    <td mat-cell *matCellDef="let row"> {{row.goodPrice2 | currency: '' : ''}} </td>
+                    <td mat-footer-cell *matFooterCellDef> </td>
+                </ng-container>
+
+                <!-- Price Column -->
+                <ng-container matColumnDef="goodDiscAmnt">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition='before'> Disccount </th>
+                    <td mat-cell *matCellDef="let row"> {{row.goodDiscAmnt | currency: '' : ''}} </td>
+                    <td mat-footer-cell *matFooterCellDef> </td>
+                </ng-container>
+
+                <!--Goods Amount Column -->
+                <ng-container matColumnDef="goodAmnt">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header arrowPosition='before'> Amount </th>
+                    <td mat-cell *matCellDef="let row"> {{row.goodAmnt | currency: '' : ''}} </td>
+                    <td mat-footer-cell *matFooterCellDef><b> {{getTotalCost() | currency:'' :''}} </b></td>
+                </ng-container>
+
+                <!-- Color Column -->
+                <!-- <ng-container matColumnDef="isTransfer">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header > Status </th>
+                    <td mat-cell *matCellDef="let row"
+                        [style.color]="row.isTransfer == 'D' ? '#007bff' : row.isTransfer == 'N' ? '#ff9900' : '#28a745'">
+                        {{row.isTransfer == 'D' ? 'ฉบับร่าง' : row.isTransfer == 'N' ? 'รอดำเนินการ' : 'เข้าระบบแล้ว'}}
+                    </td>
+                    <td mat-footer-cell *matFooterCellDef> </td>
+                </ng-container> -->
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+            </table>
+
+            <!-- <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator> -->
+        </div>
+
+        <div class="row">
+            <div class="col-6 mt-5">
+                <mat-form-field appearance="outline">
+                    <mat-label>ข้อความหมายเหตุ</mat-label>
+                    <textarea matInput rows="10" placeholder="ข้อความหมายเหตุ" [value]="saleOrderHeader.remark" readonly></textarea>
+                    
+                </mat-form-field>
+            </div>
+            <div class="col-3"></div>
+            <div class="col-3">
+                <div class="row mt-5">
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>ส่วนลดท้ายบิล</mat-label>
+                            <input matInput placeholder="Placeholder"
+                                [value]="saleOrderHeader.billDiscAmnt | currency: '' : ''" readonly>
+                            <mat-icon matSuffix>money_off</mat-icon>
+                            <!-- <mat-hint>Hint</mat-hint> -->
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>ยอดรวมก่อนหักภาษี</mat-label>
+                            <input matInput placeholder="Placeholder"
+                                [value]="saleOrderHeader.billAftrDiscAmnt | currency: '' : ''" readonly>
+                            <mat-icon matSuffix>payments</mat-icon>
+                            <!-- <mat-hint>Hint</mat-hint> -->
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>ภาษี 7%</mat-label>
+                            <input matInput placeholder="Placeholder" id="vatamnt"
+                                [value]="saleOrderHeader.vatamnt | currency: '' : ''" readonly>
+                            <mat-icon matSuffix>clean_hands</mat-icon>
+                            <!-- <mat-hint>Hint</mat-hint> -->
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field appearance="outline">
+                            <mat-label>ยอดรวมสุทธิ</mat-label>
+                            <input matInput placeholder="Placeholder" id="netAmnt"
+                                [value]="saleOrderHeader.netAmnt | currency: '' : ''" readonly>
+                            <mat-icon matSuffix>monetization_on</mat-icon>
+                            <!-- <mat-hint>Hint</mat-hint> -->
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /.card -->
+    </section>
+
+    <div class="overlay" *ngIf="loading">
+        <div *ngIf="loading" style="margin-left:10px">
+            <mat-spinner *ngIf="loading"></mat-spinner>
+        </div>
+    </div>
+    <!-- /.Left col -->
+    <!-- right col (We are only adding the ID to make the widgets sortable)-->
+
+    <!-- right col -->
+</div>

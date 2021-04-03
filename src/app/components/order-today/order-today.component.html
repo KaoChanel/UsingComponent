@@ -1,0 +1,234 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Dashboard</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Sales Order</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>{{orderToday}}</h3>
+
+              <p>Today Orders</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3>{{orderTodaySummary}}<sup style="font-size: 20px"></sup></h3>
+
+              <p>Today Summary</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-warning">
+            <div class="inner">
+              <h3>440</h3>
+
+              <p>Mounthly Summary</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+              <!-- <i class="ion ion-person-add"></i> -->
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-danger">
+            <div class="inner">
+              <h3>600</h3>
+
+              <p>Mounthly Orders</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- Main row -->
+      <!-- <div class="row">
+        <div class="col align-middle">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+              <input matStartDate formControlName="start" placeholder="Start date">
+              <input matEndDate formControlName="end" placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker touchUi #picker></mat-date-range-picker>
+
+            <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+            <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" class="m-2 align-baseline"
+            (click)="getOrderRange()">ดูรายงาน</button>
+        </div>
+        <div class="col">
+
+        </div>
+      </div> -->
+
+      <div class="row">
+        <!-- Left col -->
+        <div class="col-4">
+          <mat-form-field id="filter" appearance="outline" class="example-container">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. คลีนิคใจดีรักษา" #input>
+          </mat-form-field>
+        </div>
+
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Company</mat-label>
+            <mat-select [formControl]="colorControl">
+              <mat-option value="BIO">BioSci Animal Health</mat-option>
+              <mat-option value="NIC">Nutrition Improvement</mat-option>
+              <mat-option value="SIS">Special Ingredient Services</mat-option>
+              <mat-option value="FAITH">Feed And Ingredient Technological Hub</mat-option>
+              <mat-option value="PEDEX">Ped Ex</mat-option>
+              <mat-option value="PTK">Protest Kit</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col">
+          <mat-form-field appearance="outline">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+              <input matStartDate formControlName="start" placeholder="Start date">
+              <input matEndDate formControlName="end" placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker touchUi #picker></mat-date-range-picker>
+
+            <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+            <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+          </mat-form-field>
+          
+        </div>
+
+        <div class="col">
+          <button mat-raised-button color="primary" class="mt-1" style="padding: 7px 30px 7px 30px;"
+            (click)="getOrderRange()"><i class="fa fa-search"></i>    ดูรายงาน</button>
+        </div>
+
+        <section class="col-lg-12 connectedSortable example-container">
+          <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+              <!-- ID Column -->
+              <ng-container matColumnDef="soid">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No </th>
+                <td mat-cell *matCellDef="let row"> {{dataSource.filteredData.indexOf(row) + 1}} </td>
+              </ng-container>
+
+              <!-- docuNo Column -->
+              <ng-container matColumnDef="docuNo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'w-10'"> Doc No. </th>
+                <td mat-cell *matCellDef="let row"><a href="#" [routerLink]="['/sale-order-detail', row.soid]"
+                    routerLinkActive="router-link-active" target="_blank"> {{row.docuNo}}</a> </td>
+              </ng-container>
+
+              <!-- docuDate Column -->
+              <ng-container matColumnDef="docuDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'w-10'"> Order Date </th>
+                <td mat-cell *matCellDef="let row"> {{row.docuDate | date: 'dd/MM/yyyy'}} </td>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="custName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'w-20'"> Cust Name </th>
+                <td mat-cell *matCellDef="let row"> {{row.custName}} </td>
+              </ng-container>
+
+              <!--shipToAddr1 Column -->
+              <ng-container matColumnDef="shipToAddr1">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'w-20'"> Ship to Address </th>
+                <td mat-cell *matCellDef="let row"> {{row.shipToAddr1}} </td>
+              </ng-container>
+
+              <!-- netAmnt Column -->
+              <ng-container matColumnDef="netAmnt">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'w-10'"> Net Amount </th>
+                <td mat-cell *matCellDef="let row"> {{row.netAmnt | currency: "" : ""}} </td>
+              </ng-container>
+
+              <!-- remark Column -->
+              <ng-container matColumnDef="remark">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'p-1'"> Remark </th>
+                <td mat-cell *matCellDef="let row"> {{row.remark}} </td>
+              </ng-container>
+
+              <!-- Color Column -->
+              <ng-container matColumnDef="isTransfer">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="'w-10'"> Status </th>
+                <td mat-cell *matCellDef="let row"
+                  [style.color]="row.isTransfer == 'D' ? '#007bff' : row.isTransfer == 'N' ? '#ff9900' : '#28a745'">
+                  {{row.isTransfer == 'D' ? 'ฉบับร่าง' : row.isTransfer == 'N' ? 'รอดำเนินการ' : 'เข้าระบบแล้ว'}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+              <!-- Row shown when there is no matching data. -->
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="8">No data matching the filter "{{input.value}}"</td>
+              </tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+          </div>
+
+          <!-- /.card -->
+        </section>
+        <!-- /.Left col -->
+        <!-- right col (We are only adding the ID to make the widgets sortable)-->
+
+        <!-- right col -->
+      </div>
+      <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>

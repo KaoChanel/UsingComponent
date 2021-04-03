@@ -1,0 +1,7 @@
+.nav-item .mat-select-panel {
+    z-index: 999999999999999999 !important;
+}
+
+.nav-item .cdk-global-overlay-wrapper, .cdk-overlay-container{
+z-index: 999999999999999999 !important
+}
