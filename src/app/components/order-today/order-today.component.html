@@ -121,13 +121,8 @@
         <div class="col">
           <mat-form-field appearance="outline">
             <mat-label>Company</mat-label>
-            <mat-select [formControl]="colorControl">
-              <mat-option value="BIO">BioSci Animal Health</mat-option>
-              <mat-option value="NIC">Nutrition Improvement</mat-option>
-              <mat-option value="SIS">Special Ingredient Services</mat-option>
-              <mat-option value="FAITH">Feed And Ingredient Technological Hub</mat-option>
-              <mat-option value="PEDEX">Ped Ex</mat-option>
-              <mat-option value="PTK">Protest Kit</mat-option>
+            <mat-select [formControl]="colorControl" (selecionChange)="CompanyChanged()">
+              <mat-option *ngFor="let element of companies" [value]="element.value">{{element.text}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>

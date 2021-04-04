@@ -33,13 +33,16 @@ const NAMES: string[] = [
 
 export class OrderTodayComponent implements AfterViewInit {
 
-  colorControl = new FormControl('BIO');  /// Binding global-constant.
+  selectedCompany: string = localStorage.getItem("company") ?? '';
+  colorControl = new FormControl(this.selectedCompany);  /// Binding global-constant.
   range = new FormGroup({start: new FormControl(), end: new FormControl()});
   orderToday : number = 0;
   orderTodaySummary : number = 0;
   dataSource: MatTableDataSource<SaleOrderHeader>;
   saleOrderHeaders?: SaleOrderHeader[];
-  displayedColumns: string[] = [
+
+  displayedColumns: string[] = 
+  [
     'soid',
     'docuNo',
     'docuDate',
@@ -48,6 +51,15 @@ export class OrderTodayComponent implements AfterViewInit {
     'netAmnt',
     'remark',
     'isTransfer'
+  ];
+
+  companies = [
+    { value: 'BIO', text: 'BioSci Animal Health' },
+    { value: 'NIC', text: 'Nutrition Improvment' },
+    { value: 'SIS', text: 'Special Ingredient Services' },
+    { value: 'PEDEX', text: 'Ped Ex' },
+    { value: 'FAITH', text: 'Feed And Ingredient Technological Hub' },
+    { value: 'PTK', text: 'Protest Kit' }
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -105,6 +117,12 @@ export class OrderTodayComponent implements AfterViewInit {
 
         this.Toast.fire({icon: 'info', title: this.saleOrderHeaders?.length > 0 ? this.saleOrderHeaders?.length + ' documents has been found.' : ' Not found document.'});
       });
+  }
+
+  CompanyChanged(){
+    this.selectedCompany = this.colorControl.value;
+    localStorage.setItem('company', this.selectedCompany);
+    window.alert(localStorage.getItem('company'));
   }
 
   applyFilter(event: Event) {
