@@ -7,6 +7,7 @@ import { SaleOrderHeader } from 'src/app/_models/saleOrderHeader';
 import { SaleOrderService } from './../../_service//saleOrder/sale-order.service';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
+import { MatSelectChange } from '@angular/material/select';
 
 export interface UserData {
   id: string;
@@ -57,8 +58,8 @@ export class OrderTodayComponent implements AfterViewInit {
     { value: 'BIO', text: 'BioSci Animal Health' },
     { value: 'NIC', text: 'Nutrition Improvment' },
     { value: 'SIS', text: 'Special Ingredient Services' },
-    { value: 'PEDEX', text: 'Ped Ex' },
     { value: 'FAITH', text: 'Feed And Ingredient Technological Hub' },
+    { value: 'PEDEX', text: 'Ped Ex' },
     { value: 'PTK', text: 'Protest Kit' }
   ];
 
@@ -119,10 +120,10 @@ export class OrderTodayComponent implements AfterViewInit {
       });
   }
 
-  CompanyChanged(){
+  CompanyChanged(event:MatSelectChange){
     this.selectedCompany = this.colorControl.value;
     localStorage.setItem('company', this.selectedCompany);
-    window.alert(localStorage.getItem('company'));
+    this.Toast.fire({icon:'info', title: event.source.triggerValue + ' has been selected.'});
   }
 
   applyFilter(event: Event) {

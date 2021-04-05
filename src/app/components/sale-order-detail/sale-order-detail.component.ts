@@ -27,6 +27,7 @@ export class SaleOrderDetailComponent implements AfterViewInit {
   displayedColumns?: string[] = 
   [
     'listNo',
+    'goodCode',
     'goodName',
     'goodQty2',
     'goodUnitCode',
