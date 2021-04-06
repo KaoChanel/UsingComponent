@@ -36,23 +36,23 @@ export class OrderTodayComponent implements AfterViewInit {
 
   selectedCompany: string = localStorage.getItem("company") ?? '';
   colorControl = new FormControl(this.selectedCompany);  /// Binding global-constant.
-  range = new FormGroup({start: new FormControl(), end: new FormControl()});
-  orderToday : number = 0;
-  orderTodaySummary : number = 0;
+  range = new FormGroup({ start: new FormControl(), end: new FormControl() });
+  orderToday: number = 0;
+  orderTodaySummary: number = 0;
   dataSource: MatTableDataSource<SaleOrderHeader>;
   saleOrderHeaders?: SaleOrderHeader[];
 
-  displayedColumns: string[] = 
-  [
-    'soid',
-    'docuNo',
-    'docuDate',
-    'custName',
-    'shipToAddr1',
-    'netAmnt',
-    'remark',
-    'isTransfer'
-  ];
+  displayedColumns: string[] =
+    [
+      'soid',
+      'docuNo',
+      'docuDate',
+      'custName',
+      'shipToAddr1',
+      'netAmnt',
+      'remark',
+      'isTransfer'
+    ];
 
   companies = [
     { value: 'BIO', text: 'BioSci Animal Health' },
@@ -98,12 +98,15 @@ export class OrderTodayComponent implements AfterViewInit {
   }
 
   getOrder(): void {
-    this.saleorder.getSaleOrderHeader(new Date(), new Date()).then(e => this.saleOrderHeaders = e as SaleOrderHeader[]);
-    this.dataSource = new MatTableDataSource(this.saleOrderHeaders);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    this.orderToday = this.saleOrderHeaders?.length ?? 0;
-    console.log(this.saleOrderHeaders);
+    this.saleorder.getSaleOrderHeader(new Date(), new Date())
+      .then(e => {
+        this.saleOrderHeaders = e as SaleOrderHeader[];
+        this.orderToday = this.saleOrderHeaders?.length ?? 0;
+        this.orderTodaySummary = this.saleOrderHeaders.reduce((acc, val) => acc += val.netAmnt ?? 0, 0);
+        this.dataSource = new MatTableDataSource(this.saleOrderHeaders);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
   }
 
   getOrderRange(): void {
@@ -116,14 +119,15 @@ export class OrderTodayComponent implements AfterViewInit {
         // this.orderToday = this.saleOrderHeaders?.length ?? 0;
         console.log(this.saleOrderHeaders);
 
-        this.Toast.fire({icon: 'info', title: this.saleOrderHeaders?.length > 0 ? this.saleOrderHeaders?.length + ' documents has been found.' : ' Not found document.'});
+        this.Toast.fire({ icon: 'info', title: this.saleOrderHeaders?.length > 0 ? this.saleOrderHeaders?.length + ' documents has been found.' : ' Not found document.' });
       });
   }
 
-  CompanyChanged(event:MatSelectChange){
+  CompanyChanged(event: MatSelectChange) {
     this.selectedCompany = this.colorControl.value;
     localStorage.setItem('company', this.selectedCompany);
-    this.Toast.fire({icon:'info', title: event.source.triggerValue + ' has been selected.'});
+    this.Toast.fire({ icon: 'info', title: event.source.triggerValue + ' has been selected.' });
+    this.getOrder();
   }
 
   applyFilter(event: Event) {
