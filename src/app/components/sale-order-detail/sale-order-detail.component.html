@@ -7,7 +7,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>เลขที่เอกสาร</mat-label>
                     <input matInput placeholder="เลขที่เอกสาร" [value]="saleOrderHeader.docuNo" readonly>
-                    <mat-icon matSuffix>description</mat-icon>
+                    <!-- <mat-icon matSuffix>description</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
@@ -16,15 +16,15 @@
                     <mat-label>วันที่เอกสาร</mat-label>
                     <input matInput placeholder="วันที่เอกสาร" [value]="saleOrderHeader.docuDate | date:'dd/MM/yyyy'"
                         readonly>
-                    <mat-icon matSuffix>event</mat-icon>
+                    <!-- <mat-icon matSuffix>event</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
             <div class="col">
                 <mat-form-field appearance="outline">
                     <mat-label>แผนก</mat-label>
-                    <input matInput placeholder="แผนก" value="ฝ่ายขาย">
-                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <input matInput placeholder="แผนก" value="ฝ่ายขาย" readonly>
+                    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
@@ -34,7 +34,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>เลขที่ใบสั่งซื้อ</mat-label>
                     <input matInput placeholder="เลขที่ใบสั่งซื้อ" [value]="saleOrderHeader.refNo" readonly>
-                    <mat-icon matSuffix>description</mat-icon>
+                    <!-- <mat-icon matSuffix>description</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
@@ -43,7 +43,7 @@
                     <mat-label>วันที่สั่งซื้อลูกค้า</mat-label>
                     <input matInput placeholder="วันที่สั่งซื้อลูกค้า"
                         [value]="saleOrderHeader.custPodate | date:'dd/MM/yyyy'" readonly>
-                    <mat-icon matSuffix>event</mat-icon>
+                    <!-- <mat-icon matSuffix>event</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
@@ -51,7 +51,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>จากใบเสนอราคา</mat-label>
                     <input matInput placeholder="จากใบเสนอราคา" [value]="saleOrderHeader.custPono" readonly>
-                    <mat-icon matSuffix>description</mat-icon>
+                    <!-- <mat-icon matSuffix>description</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
@@ -61,7 +61,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>รหัสพนักงาน</mat-label>
                     <input matInput placeholder="รหัสพนักงาน" [value]="employee.empCode" readonly>
-                    <mat-icon matSuffix>tag</mat-icon>
+                    <!-- <mat-icon matSuffix>tag</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
@@ -69,7 +69,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>ชื่อพนักงาน</mat-label>
                     <input matInput placeholder="ชื่อพนักงาน" [value]="employee.empName" readonly>
-                    <mat-icon matSuffix>account_circle</mat-icon>
+                    <!-- <mat-icon matSuffix>account_circle</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
@@ -77,7 +77,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>รหัสลูกค้า</mat-label>
                     <input matInput placeholder="รหัสลูกค้า" [value]="customer.custCode" readonly>
-                    <mat-icon matSuffix>tag</mat-icon>
+                    <!-- <mat-icon matSuffix>tag</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
@@ -85,7 +85,7 @@
                 <mat-form-field appearance="outline">
                     <mat-label>ชื่อลูกค้า</mat-label>
                     <input matInput placeholder="ชื่อลูกค้า" [value]="customer.custName" readonly>
-                    <mat-icon matSuffix>account_circle</mat-icon>
+                    <!-- <mat-icon matSuffix>account_circle</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
@@ -115,28 +115,28 @@
         </div> -->
 
         <div class="row">
-            <div class="col">
+            <div class="col-8">
                 <mat-form-field appearance="outline">
                     <mat-label>สถานที่จัดส่ง</mat-label>
                     <input matInput placeholder="สถานที่จัดส่ง" [value]="saleOrderHeader.shipToAddr1" readonly>
-                    <mat-icon matSuffix>local_shipping</mat-icon>
+                    <!-- <mat-icon matSuffix>local_shipping</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
-            <div class="col">
+            <div class="col-2">
                 <mat-form-field appearance="outline">
                     <mat-label>จังหวัด</mat-label>
                     <input matInput placeholder="จังหวัด" [value]="saleOrderHeader.province" readonly>
-                    <mat-icon matSuffix>local_shipping</mat-icon>
+                    <!-- <mat-icon matSuffix>local_shipping</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
-            <div class="col">
+            <div class="col-2">
                 <mat-form-field appearance="outline">
                     <mat-label>วันที่ส่ง</mat-label>
                     <input matInput placeholder="วันที่ส่ง" [value]="saleOrderHeader.shipDate | date: 'dd/MM/yyyy'"
                         readonly>
-                    <mat-icon matSuffix>event</mat-icon>
+                    <!-- <mat-icon matSuffix>event</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
             </div>
@@ -236,44 +236,44 @@
             <div class="col-3">
                 <div class="row mt-5">
                     <div class="col">
-                        <mat-form-field appearance="outline">
+                        <mat-form-field appearance="outline" class="text-right">
                             <mat-label>ส่วนลดท้ายบิล</mat-label>
                             <input matInput placeholder="Placeholder"
                                 [value]="saleOrderHeader.billDiscAmnt | currency: '' : ''" readonly>
-                            <mat-icon matSuffix>money_off</mat-icon>
+                            <mat-icon matPrefix>money_off</mat-icon>
                             <!-- <mat-hint>Hint</mat-hint> -->
                         </mat-form-field>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <mat-form-field appearance="outline">
+                        <mat-form-field appearance="outline" class="text-right">
                             <mat-label>ยอดรวมก่อนหักภาษี</mat-label>
                             <input matInput placeholder="Placeholder"
                                 [value]="saleOrderHeader.billAftrDiscAmnt | currency: '' : ''" readonly>
-                            <mat-icon matSuffix>payments</mat-icon>
+                            <mat-icon matPrefix>payments</mat-icon>
                             <!-- <mat-hint>Hint</mat-hint> -->
                         </mat-form-field>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <mat-form-field appearance="outline">
+                        <mat-form-field appearance="outline" class="text-right">
                             <mat-label>ภาษี 7%</mat-label>
                             <input matInput placeholder="Placeholder" id="vatamnt"
                                 [value]="saleOrderHeader.vatamnt | currency: '' : ''" readonly>
-                            <mat-icon matSuffix>clean_hands</mat-icon>
+                            <mat-icon matPrefix>monetization_on</mat-icon>
                             <!-- <mat-hint>Hint</mat-hint> -->
                         </mat-form-field>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <mat-form-field appearance="outline">
+                        <mat-form-field appearance="outline" class="text-right">
                             <mat-label>ยอดรวมสุทธิ</mat-label>
                             <input matInput placeholder="Placeholder" id="netAmnt"
                                 [value]="saleOrderHeader.netAmnt | currency: '' : ''" readonly>
-                            <mat-icon matSuffix>monetization_on</mat-icon>
+                            <mat-icon matPrefix>monetization_on</mat-icon>
                             <!-- <mat-hint>Hint</mat-hint> -->
                         </mat-form-field>
                     </div>

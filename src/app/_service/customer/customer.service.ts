@@ -10,8 +10,8 @@ export class CustomerService {
 
   constructor(private http: HttpClient) { }
 
-  getCustomer(custId: any){
-    const strUrl = GlobalConstants.apiURL + 'customers/getcustomer/' + localStorage.getItem('company') + '/' + custId;
+  getCustomer(custId: number){
+    const strUrl = GlobalConstants.apiURL + 'customers/' + localStorage.getItem('company') + '/' + custId;
     return this.http.get<Customer>(strUrl);
   }
 }

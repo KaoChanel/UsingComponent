@@ -60,7 +60,8 @@ export class OrderTodayComponent implements AfterViewInit {
     { value: 'SIS', text: 'Special Ingredient Services' },
     { value: 'FAITH', text: 'Feed And Ingredient Technological Hub' },
     { value: 'PEDEX', text: 'Ped Ex' },
-    { value: 'PTK', text: 'Protest Kit' }
+    { value: 'PTK', text: 'Protest Kit' },
+    { value: 'PTKTEST', text: 'Protest Kit (Test)' }
   ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
