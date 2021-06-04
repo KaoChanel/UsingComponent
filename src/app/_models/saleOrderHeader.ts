@@ -107,6 +107,7 @@ export interface SaleOrderHeader {
     clearflag?:        null;
     isTransfer?:       string;
     color?:            string;
+    createTime?:       null;
 }
 
 // Converts JSON strings to/from your types

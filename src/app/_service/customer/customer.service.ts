@@ -12,6 +12,6 @@ export class CustomerService {
 
   getCustomer(custId: number){
     const strUrl = GlobalConstants.apiURL + 'customers/' + localStorage.getItem('company') + '/' + custId;
-    return this.http.get<Customer>(strUrl);
+    return this.http.get<Customer[]>(strUrl);
   }
 }

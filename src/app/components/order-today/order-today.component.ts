@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SaleOrderHeader } from 'src/app/_models/saleOrderHeader';
+import { SaleOrderHeaderView } from 'src/app/_models/saleOrderHeaderView';
 import { SaleOrderService } from './../../_service//saleOrder/sale-order.service';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
@@ -36,21 +37,23 @@ export class OrderTodayComponent implements AfterViewInit {
 
   selectedCompany: string = localStorage.getItem("company") ?? '';
   colorControl = new FormControl(this.selectedCompany);  /// Binding global-constant.
-  range = new FormGroup({ start: new FormControl(), end: new FormControl() });
+  range = new FormGroup({ start: new FormControl(new Date()), end: new FormControl(new Date()) });
   orderToday: number = 0;
   orderTodaySummary: number = 0;
   dataSource: MatTableDataSource<SaleOrderHeader>;
   saleOrderHeaders?: SaleOrderHeader[];
+  saleOrderHeaderView?: SaleOrderHeaderView[];
 
   displayedColumns: string[] =
     [
       'soid',
       'docuNo',
       'docuDate',
+      // 'empCode',
       'custName',
       'shipToAddr1',
       'netAmnt',
-      'remark',
+      // 'remark',
       'isTransfer'
     ];
 
@@ -104,7 +107,8 @@ export class OrderTodayComponent implements AfterViewInit {
         this.saleOrderHeaders = e as SaleOrderHeader[];
         this.orderToday = this.saleOrderHeaders?.length ?? 0;
         this.orderTodaySummary = this.saleOrderHeaders.reduce((acc, val) => acc += val.netAmnt ?? 0, 0);
-        this.dataSource = new MatTableDataSource(this.saleOrderHeaders);
+        
+        this.dataSource = new MatTableDataSource(this.saleOrderHeaders.reverse());
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
@@ -114,7 +118,7 @@ export class OrderTodayComponent implements AfterViewInit {
     this.saleorder.getSaleOrderHeader(this.range.controls.start.value, this.range.controls.end.value)
       .then(e => {
         this.saleOrderHeaders = e;
-        this.dataSource = new MatTableDataSource(this.saleOrderHeaders);
+        this.dataSource = new MatTableDataSource(this.saleOrderHeaders.reverse());
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         // this.orderToday = this.saleOrderHeaders?.length ?? 0;

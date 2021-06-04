@@ -22,7 +22,7 @@ export class SaleOrderDetailComponent implements AfterViewInit {
   saleOrderHeader!: SaleOrderHeader;
   saleOrderInfo!: SaleOrderInfo[];
   employee!: Employee;
-  customer!: Customer;
+  customer!: Customer[];
   dataSource!: MatTableDataSource<SaleOrderInfo>;
   displayedColumns?: string[] = 
   [
