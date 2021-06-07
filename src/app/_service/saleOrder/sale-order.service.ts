@@ -9,6 +9,7 @@ import { SaleOrderHeader } from './../../_models/saleOrderHeader';
 import { SaleOrderDetail } from 'src/app/_models/saleOrderDetail';
 import { GlobalConstants } from './../../shared/global-constants';
 import { SaleOrderInfo } from 'src/app/_models/saleOrderInfo';
+import { SaleOrderHeaderView } from 'src/app/_models/saleOrderHeaderView';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,17 @@ export class SaleOrderService {
   constructor(private http: HttpClient, public datePipe: DatePipe) { }
 
   /** GET heroes from the server */
-  async getSaleOrderHeader(start: Date, end: Date): Promise<SaleOrderHeader[]> {
-    return await this.http.get<SaleOrderHeader[]>(GlobalConstants.apiURL + 'SaleOrderHeader/GetOrder/' + localStorage.getItem('company')?.toString() + '/' + this.datePipe.transform(start, 'yyyy-MM-dd')?.toString() + '/' + this.datePipe.transform(end, 'yyyy-MM-dd')?.toString())
+  async getSaleOrderHeaderRange(start: Date, end: Date): Promise<SaleOrderHeader[]> {
+    return await this.http.get<SaleOrderHeader[]>(GlobalConstants.apiURL + 'SaleOrderHeader/GetSaleOrder/' + localStorage.getItem('company')?.toString() + '/' + this.datePipe.transform(start, 'yyyy-MM-dd')?.toString() + '/' + this.datePipe.transform(end, 'yyyy-MM-dd')?.toString())
       .pipe(
         tap(_ => this.log('fetched saleOrderHeader')),
         catchError(this.handleError<SaleOrderHeader[]>('getSaleOrderHeader', []))
       ).toPromise();
+  }
+
+  getSaleOrderHeader(soid: Number) {
+    const strUrl = GlobalConstants.apiURL + 'SaleOrderHeader/GetSaleOrder/';
+    return this.http.get<SaleOrderHeaderView[]>(strUrl + localStorage.getItem('company') + '/' + soid);
   }
 
   getSaleOrderHeaderById(soid: Number) {

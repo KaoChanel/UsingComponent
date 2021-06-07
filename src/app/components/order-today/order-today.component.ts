@@ -9,6 +9,9 @@ import { SaleOrderService } from './../../_service//saleOrder/sale-order.service
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
 import { MatSelectChange } from '@angular/material/select';
+import { Employee } from 'src/app/_models/employee';
+import { EmployeeService } from 'src/app/_service/employee/employee.service';
+import { SaleOrderHeaderComponent } from '../sale-order-header/sale-order-header.component';
 
 export interface UserData {
   id: string;
@@ -40,18 +43,19 @@ export class OrderTodayComponent implements AfterViewInit {
   range = new FormGroup({ start: new FormControl(new Date()), end: new FormControl(new Date()) });
   orderToday: number = 0;
   orderTodaySummary: number = 0;
-  dataSource: MatTableDataSource<SaleOrderHeader>;
-  saleOrderHeaders?: SaleOrderHeader[];
+  employee: Employee = {empName: ""};
+  dataSource: MatTableDataSource<SaleOrderHeaderView>;
+  saleOrderHeaders: SaleOrderHeaderView[] = [];
   saleOrderHeaderView?: SaleOrderHeaderView[];
 
   displayedColumns: string[] =
     [
-      'soid',
+      'soId',
       'docuNo',
       'docuDate',
-      // 'empCode',
+      'empName',
       'custName',
-      'shipToAddr1',
+      // 'shipToAddr1',
       'netAmnt',
       // 'remark',
       'isTransfer'
@@ -82,7 +86,7 @@ export class OrderTodayComponent implements AfterViewInit {
     }
   })
 
-  constructor(private saleorder: SaleOrderService, public datePipe: DatePipe) {
+  constructor(private saleorder: SaleOrderService, private empService: EmployeeService, public datePipe: DatePipe) {
     const today = new Date();
     const month = today.getMonth();
     const year = today.getFullYear();
@@ -102,23 +106,34 @@ export class OrderTodayComponent implements AfterViewInit {
   }
 
   getOrder(): void {
-    this.saleorder.getSaleOrderHeader(new Date(), new Date())
+    this.saleorder.getSaleOrderHeaderRange(new Date(), new Date())
       .then(e => {
-        this.saleOrderHeaders = e as SaleOrderHeader[];
+        this.saleOrderHeaders = e as SaleOrderHeaderView[];
         this.orderToday = this.saleOrderHeaders?.length ?? 0;
         this.orderTodaySummary = this.saleOrderHeaders.reduce((acc, val) => acc += val.netAmnt ?? 0, 0);
-        
-        this.dataSource = new MatTableDataSource(this.saleOrderHeaders.reverse());
+
+        this.dataSource = new MatTableDataSource(this.saleOrderHeaders);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       });
   }
 
+  getEmployeeName(empId: number) {
+    let empName: string | undefined;
+    this.empService.getEmployeeById(empId)
+    .forEach(e => {
+        empName = e.empName;
+        this.employee = e;
+        console.log("this.employee: " + this.employee.empName);
+      });
+    console.log("this.employee: " + this.employee.empName);
+  }
+
   getOrderRange(): void {
-    this.saleorder.getSaleOrderHeader(this.range.controls.start.value, this.range.controls.end.value)
+    this.saleorder.getSaleOrderHeaderRange(this.range.controls.start.value, this.range.controls.end.value)
       .then(e => {
-        this.saleOrderHeaders = e;
-        this.dataSource = new MatTableDataSource(this.saleOrderHeaders.reverse());
+        this.saleOrderHeaders = e as SaleOrderHeaderView[];
+        this.dataSource = new MatTableDataSource(this.saleOrderHeaders);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         // this.orderToday = this.saleOrderHeaders?.length ?? 0;

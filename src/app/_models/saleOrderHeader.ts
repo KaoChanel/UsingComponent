@@ -5,10 +5,10 @@
 //   const saleOrderHeader = Convert.toSaleOrderHeader(json);
 
 export interface SaleOrderHeader {
-    soid?:             number;
+    soId:              number;
     saleAreaId?:       number;
     vatgroupId?:       number;
-    empId?:            number;
+    empId:             number;
     currTypeId?:       number;
     creditId?:         number;
     brchId?:           number;
@@ -107,7 +107,7 @@ export interface SaleOrderHeader {
     clearflag?:        null;
     isTransfer?:       string;
     color?:            string;
-    createTime?:       null;
+    createTime?:       Date;
 }
 
 // Converts JSON strings to/from your types

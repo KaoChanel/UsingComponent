@@ -5,8 +5,11 @@
 //   const saleOrderHeader = Convert.toSaleOrderHeader(json);
 
 export interface SaleOrderHeaderView {
-    empId?:            number;
+    soId:              number;
+    empId:             number;
+    empName:           string;
     docuDate?:         Date;
+    docuNo?:           string;
     shipToAddr1?:      string;
     shipToAddr2?:      string;
     netAmnt?:          number;

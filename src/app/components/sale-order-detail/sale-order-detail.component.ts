@@ -77,11 +77,11 @@ export class SaleOrderDetailComponent implements AfterViewInit {
       });
   }
 
-  getEmployee(empId: any){
+  getEmployee(empId: any) {
     this.emp.getEmployeeById(empId).pipe(finalize(() => this.loading = false)).subscribe(response => this.employee = response);
   }
 
-  getCustomer(custId: any){
+  getCustomer(custId: any) {
     this.cust.getCustomer(custId).pipe(finalize(() => this.loading = false)).subscribe(res => this.customer = res);
   }
 

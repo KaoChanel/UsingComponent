@@ -16,7 +16,7 @@ export interface Employee {
     empCode?:     string;
     empTitle?:    string;
     empTitleEng?: string;
-    empName?:     string;
+    empName:      string;
     empNameEng?:  string;
     email?:       null;
     teamId?:      null;
