@@ -32,8 +32,8 @@
         <div class="row">
             <div class="col">
                 <mat-form-field appearance="outline">
-                    <mat-label>เลขที่ใบสั่งซื้อ</mat-label>
-                    <input matInput placeholder="เลขที่ใบสั่งซื้อ" [value]="saleOrderHeader.refNo" readonly>
+                    <mat-label>เลขที่อ้างอิงระบบ</mat-label>
+                    <input matInput placeholder="เลขที่อ้างอิงระบบ" [value]="saleOrderHeader.refNo" readonly>
                     <!-- <mat-icon matSuffix>description</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
@@ -41,7 +41,7 @@
             <div class="col">
                 <mat-form-field appearance="outline">
                     <mat-label>วันที่สั่งซื้อลูกค้า</mat-label>
-                    <input matInput placeholder="วันที่สั่งซื้อลูกค้า"
+                    <input matInput placeholder="วันที่สั่งซื้อของลูกค้า"
                         [value]="saleOrderHeader.custPodate | date:'dd/MM/yyyy'" readonly>
                     <!-- <mat-icon matSuffix>event</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
@@ -49,8 +49,8 @@
             </div>
             <div class="col">
                 <mat-form-field appearance="outline">
-                    <mat-label>จากใบเสนอราคา</mat-label>
-                    <input matInput placeholder="จากใบเสนอราคา" [value]="saleOrderHeader.custPono" readonly>
+                    <mat-label>เลขที่ใบสั่งซื้อของลูกค้า</mat-label>
+                    <input matInput placeholder="เลขที่ใบสั่งซื้อของลูกค้า" [value]="saleOrderHeader.custPono" readonly>
                     <!-- <mat-icon matSuffix>description</mat-icon> -->
                     <!-- <mat-hint>Hint</mat-hint> -->
                 </mat-form-field>
