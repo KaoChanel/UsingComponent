@@ -1,0 +1,6 @@
+<h1 mat-dialog-title>ไฟล์แนบเอกสาร</h1>
+<div mat-dialog-content>
+    <mat-list role="list" *ngFor="let file of allFiles">
+        <a href="https://smartsalesbis.com{{file.url}}" target="_blank" mat-list-item role="listitem">{{file.name}} {{file.extension}}</a>
+    </mat-list>
+</div>

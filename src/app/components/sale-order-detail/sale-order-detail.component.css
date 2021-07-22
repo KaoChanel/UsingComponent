@@ -79,6 +79,16 @@
     border-radius: 5px;
   }
 
+  /* focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: green;
+}
+
+/* floating label color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label { 
+    color: green; 
+}
+
 .mat-row:hover {
     background-color: rgb(236, 236, 236);
 }

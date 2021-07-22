@@ -3,14 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { MenuComponent } from './layout/menu/menu.component';
-import { SaleOrderHeaderComponent } from './components/sale-order-header/sale-order-header.component';
-import { SaleOrderDetailComponent } from './components/sale-order-detail/sale-order-detail.component';
-import { LoginComponent } from './components/login/login.component';
-import { OrderTodayComponent } from './components/order-today/order-today.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppMaterialModule } from './app-material/app-material.module';
@@ -19,14 +13,24 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { HttpClientModule } from '@angular/common/http';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DatePipe } from '@angular/common';
+
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { MenuComponent } from './layout/menu/menu.component';
+import { SaleOrderHeaderComponent } from './components/sale-order-header/sale-order-header.component';
+import { SaleOrderDetailComponent } from './components/sale-order-detail/sale-order-detail.component';
+import { LoginComponent } from './components/login/login.component';
+import { OrderTodayComponent } from './components/order-today/order-today.component';
 import { LoginLayoutComponent } from './layout/login/login-layout/login-layout.component';
 import { HomeLayoutComponent } from './layout/home/home-layout/home-layout.component';
+import { FileAttachDialogComponent } from './file-attach-dialog/file-attach-dialog.component';
 
 
 @NgModule({
@@ -40,7 +44,8 @@ import { HomeLayoutComponent } from './layout/home/home-layout/home-layout.compo
     LoginComponent,
     OrderTodayComponent,
     LoginLayoutComponent,
-    HomeLayoutComponent
+    HomeLayoutComponent,
+    FileAttachDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,8 +58,10 @@ import { HomeLayoutComponent } from './layout/home/home-layout/home-layout.compo
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatDatepickerModule,
+    MatListModule,
     MatNativeDateModule,
     MatProgressSpinnerModule,
     HttpClientModule

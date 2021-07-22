@@ -6,16 +6,31 @@
 
 export interface SaleOrderHeaderView {
     soId:              number;
+    custId:            number;
     empId:             number;
     empName:           string;
-    docuDate?:         Date;
     docuNo?:           string;
+    docuDate?:         Date;
+    shipDate?:         Date;
     shipToAddr1?:      string;
     shipToAddr2?:      string;
-    netAmnt?:          number;
-    remark?:           string;
+    province?:         string;
+    remarkHeader?:     string;
     isTransfer?:       string;
     createTime?:       Date;
+
+    custPodate?:       Date | null;
+    custPono?:         string;
+    refNo?:            string;
+    sumGoodAmnt?:      number;
+    baseDiscAmnt?:     null;
+    billDiscFormula?:  null;
+    billDiscAmnt?:     number;
+    billAftrDiscAmnt?: number;
+    totaExcludeAmnt?:  null;
+    totaBaseAmnt?:     null;
+    vatamnt?:          number;
+    netAmnt?:          number;
 }
 
 // Converts JSON strings to/from your types

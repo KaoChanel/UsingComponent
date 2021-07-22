@@ -37,6 +37,11 @@ export class SaleOrderService {
     return this.http.get<SaleOrderHeader>(strUrl + localStorage.getItem('company') + '/' + soid);
   }
 
+  getHeaderById(soid: Number) {
+    const strUrl = GlobalConstants.apiURL + 'SaleOrderHeader/GetSaleOrder/';
+    return this.http.get<SaleOrderHeaderView>(strUrl + localStorage.getItem('company') + '/' + soid);
+  }
+
   getSaleOrderDetail(soid: Number) {
     const strUrl = GlobalConstants.apiURL + 'SaleOrderDetail/';
     return this.http.get<SaleOrderDetail[]>(strUrl + localStorage.getItem('company') + '/' + soid);

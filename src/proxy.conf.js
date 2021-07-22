@@ -10,7 +10,8 @@ const PROXY_CONFIG = [
             "/proxy"
         ],
         target: "http://localhost:4200",
-        secure: false
+        secure: true,
+        changeOrigin: true,
     }
 ]
 
