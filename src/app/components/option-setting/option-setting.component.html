@@ -1,0 +1,73 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid p-5">
+      <div class="row">
+        <div class="col">
+          <h4>สามารถแก้ไขราคาได้</h4>
+        </div>
+        <div class="col">
+          <mat-radio-group [(ngModel)]="isLockPrice" (ngModelChange)="onChangeLockPrice($event)" aria-label="Select an option">
+            <mat-radio-button value="Y">เปิดใช้งาน</mat-radio-button>
+            <mat-radio-button value="N">ไม่ใช้งาน</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h4>ตรวจสอบยอดคงเหลือในคลังสินค้า</h4>
+        </div>
+        <div class="col">
+          <mat-radio-group [(ngModel)]="isLockPriceLower" (ngModelChange)="onChangeLockPriceLower($event)" aria-label="Select an option">
+            <mat-radio-button value="Y">เปิดใช้งาน</mat-radio-button>
+            <mat-radio-button value="N">ไม่ใช้งาน</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h4>ตรวจสอบสถานะลูกค้า</h4>
+        </div>
+        <div class="col">
+          <mat-radio-group [(ngModel)]="isLockCust" (ngModelChange)="onChangeLockCust($event)" aria-label="Select an option">
+            <mat-radio-button value="Y">เปิดใช้งาน</mat-radio-button>
+            <mat-radio-button value="N">ไม่ใช้งาน</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h4>ตรวจสอบวงเงินเครดิตลูกค้าก่อนทำการเลือกลูกค้า</h4>
+        </div>
+        <div class="col">
+          <mat-radio-group [(ngModel)]="isCheckCredit" (ngModelChange)="onChangeCheckCredit($event)" aria-label="Select an option">
+            <mat-radio-button value="Y">เปิดใช้งาน</mat-radio-button>
+            <mat-radio-button value="N">ไม่ใช้งาน</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <h4>สั่งขายสินค้าได้ตามวงเงินเครดิตลูกค้า</h4>
+        </div>
+        <div class="col">
+          <mat-radio-group [(ngModel)]="isLockStockLower" (ngModelChange)="onChangeLockStockLower($event)" aria-label="Select an option">
+            <mat-radio-button value="Y">เปิดใช้งาน</mat-radio-button>
+            <mat-radio-button value="N">ไม่ใช้งาน</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+
+      <div class="row pt-4">
+        <div class="col">
+          <button mat-stroked-button color="primary" (click)="updateOption()"><b>บันทึกการตั้งค่า</b></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

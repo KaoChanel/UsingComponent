@@ -3,7 +3,6 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { SaleOrderHeader } from 'src/app/_models/saleOrderHeader';
 import { SaleOrderHeaderView } from 'src/app/_models/saleOrderHeaderView';
 import { SaleOrderService } from './../../_service//saleOrder/sale-order.service';
 import { DatePipe } from '@angular/common';
@@ -11,7 +10,6 @@ import Swal from 'sweetalert2';
 import { MatSelectChange } from '@angular/material/select';
 import { Employee } from 'src/app/_models/employee';
 import { EmployeeService } from 'src/app/_service/employee/employee.service';
-import { SaleOrderHeaderComponent } from '../sale-order-header/sale-order-header.component';
 
 export interface UserData {
   id: string;

@@ -8,12 +8,14 @@ import { LoginComponent } from './components/login/login.component';
 import { OrderTodayComponent } from './components/order-today/order-today.component';
 import { SaleOrderHeaderComponent } from './components/sale-order-header/sale-order-header.component';
 import { SaleOrderDetailComponent } from './components/sale-order-detail/sale-order-detail.component';
+import { OptionSettingComponent } from './components/option-setting/option-setting.component';
 
 const routes: Routes = [
   { path:'', component: HomeLayoutComponent, canActivate: [AuthGuard], children: [{path: '', component: OrderTodayComponent}] },
   { path:'', component: LoginLayoutComponent, children: [{path: 'login', component: LoginComponent}] },
   { path:'sale-order-header', component: SaleOrderHeaderComponent, canActivate: [AuthGuard] },
-  { path:'sale-order-detail/:id', component: SaleOrderDetailComponent, canActivate: [AuthGuard] }
+  { path:'sale-order-detail/:id', component: SaleOrderDetailComponent, canActivate: [AuthGuard] },
+  { path:'option', component: HomeLayoutComponent, canActivate: [AuthGuard], children: [{path: '', component: OptionSettingComponent}] }
 ];
 
 @NgModule({

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { MatSelectModule } from '@angular/material/select';
@@ -19,6 +20,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatInputModule } from '@angular/material/input';
 import { DatePipe } from '@angular/common';
 
 import { HeaderComponent } from './layout/header/header.component';
@@ -31,6 +34,7 @@ import { OrderTodayComponent } from './components/order-today/order-today.compon
 import { LoginLayoutComponent } from './layout/login/login-layout/login-layout.component';
 import { HomeLayoutComponent } from './layout/home/home-layout/home-layout.component';
 import { FileAttachDialogComponent } from './file-attach-dialog/file-attach-dialog.component';
+import { OptionSettingComponent } from './components/option-setting/option-setting.component';
 
 
 @NgModule({
@@ -45,12 +49,14 @@ import { FileAttachDialogComponent } from './file-attach-dialog/file-attach-dial
     OrderTodayComponent,
     LoginLayoutComponent,
     HomeLayoutComponent,
+    OptionSettingComponent,
     FileAttachDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
+    FormsModule,
     ReactiveFormsModule,
     AppMaterialModule,
     MatSelectModule,
@@ -64,6 +70,8 @@ import { FileAttachDialogComponent } from './file-attach-dialog/file-attach-dial
     MatListModule,
     MatNativeDateModule,
     MatProgressSpinnerModule,
+    MatInputModule,
+    MatRadioModule,
     HttpClientModule
   ],
   providers: [
